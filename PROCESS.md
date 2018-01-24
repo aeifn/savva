@@ -1,29 +1,29 @@
-* Задача: собрать все, что есть *
+* Задача: собрать все, что есть
 
 # Процесс:
 
 ## Часть I
 
-Я решил, что нужно собирать ссылки на ресурсы в интернете.
+Я решил, что нужно собирать все — это значит собрать ссылки на ресурсы (хотя бы).
 
-Для этого уже имеющимся в интернете инструментами извлекаю URL-ы из письма и со страницы http://www.usdp.ru/savva.html
+Для этого имеющимся в интернете инструментами извлекаю URL-ы из письма и со страницы http://www.usdp.ru/savva.html
 
 Обрабатываю в редакторе vim:
- :s/".*$//
- :g/embed/d
+  :s/".*$//
+  :g/embed/d
 
 Получается файл urls1.txt вида:
 
- ...
- https://www.youtube.com/watch?v=6fCoqeqme10
- https://www.youtube.com/watch?v=Byw49v8uAPo
- https://www.youtube.com/watch?v=I_JnVNIjKRY
- ...
+  ...
+  https://www.youtube.com/watch?v=6fCoqeqme10
+  https://www.youtube.com/watch?v=Byw49v8uAPo
+  https://www.youtube.com/watch?v=I_JnVNIjKRY
+  ...
 
 Сортируем и удаляем дубликаты
 
- sort urls1.txt | uniq > urls.txt
- rm urls1.txt
+  sort urls1.txt | uniq > urls.txt
+  rm urls1.txt
 
 Теперь у нас есть файл со всеми ссылками
 
@@ -36,10 +36,10 @@
 Я решил использовать базу данных SQLite3, так как она уже установлена на Маке и хранит данные в одном файле.
 
 Создадим базу данных:
- $ sqlite3 database.sqlite3
- sqlite> CREATE TABLE urls (url TEXT UNIQUE NOT NULL);
- sqlite> /* и импортируем в нее наш файл */
- sqlite> .import urls.txt ulrs
+  $ sqlite3 database.sqlite3
+  sqlite> CREATE TABLE urls (url TEXT UNIQUE NOT NULL);
+  sqlite> /* и импортируем в нее наш файл */
+  sqlite> .import urls.txt ulrs
 
 Теперь наши ссылки в базе данных
 
@@ -51,5 +51,5 @@
 
 Делаем гит-репозиторий для удобства обмена.
 
- git init
+  git init
 
