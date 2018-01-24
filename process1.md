@@ -1,0 +1,24 @@
+Задача: собрать все, что есть
+
+Процесс:
+Я решил, что нужно собирать ссылки на ресурсы в интернете.
+
+Для этого уже имеющимся в интернете инструментами извлекаю URL-ы из письма и со страницы usdp.ru/savva.html
+
+Обрабатываю в редакторе vim:
+:s/".*$//
+:g/embed/d
+
+Получается файл urls1.txt вида:
+...
+https://www.youtube.com/watch?v=6fCoqeqme10
+https://www.youtube.com/watch?v=Byw49v8uAPo
+https://www.youtube.com/watch?v=I_JnVNIjKRY
+...
+
+Сортируем и удаляем дубликаты
+
+sort urls1.txt | uniq > urls.txt
+rm urls1.txt
+
+Теперь у нас есть файл со всеми ссылками
