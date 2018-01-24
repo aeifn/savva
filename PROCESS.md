@@ -65,4 +65,4 @@ sqlite> .import urls.txt ulrs
 git init
 ```
 
-Загружаем тестовую версию 
+Загружаем тестовую версию по адресу http://egor.cf/savva/
