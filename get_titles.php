@@ -15,7 +15,7 @@ echo $elements[0]->nodeValue;
 
 $db = new SQLite3("database.sqlite");
 
-$result=$db->query('SELECT rowid, url FROM urls');
+$result=$db->query('SELECT _rowid_, url FROM urls');
 while ($res = $result->fetchArray()) {
 	$rowid=$res["rowid"];
 	echo "\n\n";
@@ -25,15 +25,16 @@ while ($res = $result->fetchArray()) {
 	echo "\n";
 	$title = get_title($res["url"]);
 	echo "$title";
-	$db->query("UPDATE urls SET title=$title WHERE rowid=$rowid");
+	$db->exec("UPDATE urls SET title=\"$title\" WHERE _rowid_=\"$rowid\"");
 }
 
 
 function get_title($url) {
 	$doc = new DOMDocument();
-	$doc->loadHTML(file_get_contents($url));
+	$html=file_get_contents($url);
+	$doc->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
 	$elements=$doc->getElementsByTagName('title');
-	echo $elements[0]->nodeValue;
+	return $elements[0]->nodeValue;
 }
 
 

@@ -8,12 +8,22 @@
 
 $db = new SQLite3("database.sqlite");
 
-$result=$db->query('SELECT * FROM urls');
-echo ( "<ol>" );
+$result=$db->query('SELECT _rowid_,url,title FROM urls');
+echo ( "<table>" );
 while ($res = $result->fetchArray()) {
+	
 	$url=$res["url"];
-	echo("<li><a href=\"$url\">$url</a></li>");
+	$title=$res["title"];
+	$rowid=$res["rowid"];
+	
+	echo("
+		<tr style=\"background:#ddd;\">
+		<td style=\"font-size:.5em;\">$rowid</td>
+		<td>$title</td>
+		<td><a href=\"$url\">$url</a></td>
+		</tr>
+	");
 }
-echo ( "</ol>" );
 
+echo ("</table>");
 ?>
