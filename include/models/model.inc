@@ -2,9 +2,9 @@
 
 class Model {
 
-  function __construct(){
+  function __construct($file){
 
-    $this->db = new SQLite3("database.sqlite");
+    $this->db = new SQLite3($file);
 
   }
 

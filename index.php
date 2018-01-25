@@ -8,29 +8,22 @@
 /* Настройки */
 $title = "Ссылки на ресурсы Савватеева";
 
-$sections = [
+/* Header */
+include_once("include/header.inc");
 
-	1 => "Плейлисты",
-	2 => "Отдельные видео",
-	3 => "Профили",
-	4 => "Онлайн-курсы на спецплатформах",
-
-	5 => "Журналистика",
-	//6 => "Соцсети и приколы",
-	7 => "Анонсы",
-	8 => "Битые ссылки (к удалению)",
-	//9 => "Мероприятия",
-	10 => "Документы",
-	0 => "Прочее",
-];
-
+/* Список разделов */
+require_once("include/sections.inc");
 
 /* Подключаем модель */
-require_once("models.php");
+require_once("include/models/model.inc");
 
-$model = new Model();
+$model = new Model("database.sqlite");
 
-/* Рендерим полученные данные */
-require_once("view.php");
+/* Для каждого раздела рисуем секцию */
+foreach ($sections as $key=>$section):
+  include("include/index/section.inc");
+endforeach;
 
+/* Footer */
+include_once("include/footer.inc");
 ?>
