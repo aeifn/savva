@@ -11,7 +11,7 @@
     <td>
 <ul>
 <li><a href="urls.txt">Скачать текстом</a></li>
-<li><a href="database.sqlite3">Скачать базой данных</a></li>
+<li><a href="database.sqlite">Скачать базой данных</a></li>
 </ul>
 </td>
 
