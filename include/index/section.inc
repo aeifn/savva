@@ -1,4 +1,5 @@
 <h2><?=$key?> — <?=$section?></h2>
+
 <table>
 
 <?php
