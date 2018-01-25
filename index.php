@@ -6,7 +6,7 @@
 <hr />
 <?php
 
-$db = new SQLite3("database.sqlite3");
+$db = new SQLite3("database.sqlite");
 
 $result=$db->query('SELECT * FROM urls');
 echo ( "<ol>" );
