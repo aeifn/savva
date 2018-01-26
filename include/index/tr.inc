@@ -1,3 +1,7 @@
+<?php
+/* Тут выводим раздел */
+
+ ?>
 <tr style="background:#ddd;">
 <td style="font-size:.5em;"><?=$res["rowid"]?></td>
 <td><?=$res["title"]?></td>

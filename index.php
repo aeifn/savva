@@ -5,13 +5,13 @@
 (собирает информацию с базы данных и передает их в вид)
 */
 
-/* Настройки */
+/* Готовим данные
+========================================== */
+
+/* Заголовок страницы */
 $title = "Ссылки на ресурсы Савватеева";
 
-/* Header */
-include_once("include/header.inc");
-
-/* Список разделов */
+/* Подключаем список разделов */
 require_once("include/sections.inc");
 
 /* Подключаем модель */
@@ -19,11 +19,16 @@ require_once("include/models/model.inc");
 
 $model = new Model("database.sqlite");
 
-/* Для каждого раздела рисуем секцию */
-foreach ($sections as $key=>$section):
-  include("include/index/section.inc");
-endforeach;
+
+/* Выводим страницу
+========================================== */
+
+/* Header */
+include("include/header.inc");
+
+/* Content */
+include("include/index/index.inc");
 
 /* Footer */
-include_once("include/footer.inc");
+include("include/footer.inc");
 ?>
