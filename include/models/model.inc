@@ -16,4 +16,9 @@ class Model
     {
         return $this->db->query("SELECT _rowid_,url,title FROM urls WHERE section=\"$section\"");
     }
+
+    public function __destruct()
+    {
+      $this->db->close();
+    }
 }
