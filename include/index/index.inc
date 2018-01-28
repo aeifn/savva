@@ -1,6 +1,5 @@
 <?php
 /* Для каждого раздела рисуем секцию */
-foreach ($sections as $key=>$section):
+foreach (SECTIONS as $key=>$section):
   include("section.inc");
 endforeach;
-?>

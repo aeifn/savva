@@ -7,7 +7,7 @@
 $result=$model->get_section($key);
 
 while ($res = $result->fetchArray()) {
-      include("tr.inc");
+    include("tr.inc");
 }
 
 ?>

@@ -31,4 +31,3 @@ include("include/index/index.inc");
 
 /* Footer */
 include("include/footer.inc");
-?>
