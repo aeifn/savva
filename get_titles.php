@@ -12,12 +12,4 @@ while ($res = $result->fetchArray()) {
     $db->exec("UPDATE urls SET title=\"$title\" WHERE _rowid_=\"$rowid\"");
 }
 
-
-function get_title($url)
-{
-    $doc = new DOMDocument();
-    $html=file_get_contents($url);
-    $doc->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
-    $elements=$doc->getElementsByTagName('title');
-    return $elements[0]->nodeValue;
-}
+require_once("include/functions.inc");

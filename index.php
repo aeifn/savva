@@ -2,7 +2,7 @@
 
 /*
 Эта страница ведет себя как контроллер
-(собирает информацию с базы данных и передает их в вид)
+(собирает информацию с базы данных и передает их в шаблоны)
 */
 
 /* Готовим данные
@@ -12,10 +12,10 @@
 $title = "Ссылки на ресурсы Савватеева";
 
 /* Подключаем список разделов */
-require_once("include/sections.inc");
+require_once "include/sections.inc";
 
 /* Подключаем модель */
-require_once("include/models/model.inc");
+require_once "include/models/model.inc";
 
 $model = new Model("database.sqlite");
 
@@ -24,10 +24,10 @@ $model = new Model("database.sqlite");
 ========================================== */
 
 /* Header */
-include("include/header.inc");
+include "include/header.inc";
 
 /* Content */
-include("include/index/index.inc");
+include "include/index/index.inc";
 
 /* Footer */
-include("include/footer.inc");
+include "include/footer.inc";
