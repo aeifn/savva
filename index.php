@@ -11,11 +11,18 @@
 /* Заголовок страницы */
 $title = "Ссылки на ресурсы Савватеева";
 
+
+require_once $_SERVER["DOCUMENT_ROOT"] .
+"/include/functions.inc";
+
 /* Подключаем список разделов */
-require_once "include/sections.inc";
+require_once $_SERVER["DOCUMENT_ROOT"] .
+"/models/sections.inc";
 
 /* Подключаем модель */
-require_once "include/models/model.inc";
+require_once $_SERVER["DOCUMENT_ROOT"] .
+"/models/model.inc";
+
 
 $model = new Model("database.sqlite");
 
@@ -24,10 +31,10 @@ $model = new Model("database.sqlite");
 ========================================== */
 
 /* Header */
-include "include/header.inc";
+site_header();
 
 /* Content */
-include "include/index/index.inc";
+include $_SERVER["DOCUMENT_ROOT"] . "/templates/index/index.inc";
 
 /* Footer */
-include "include/footer.inc";
+site_footer();
